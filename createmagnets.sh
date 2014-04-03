@@ -19,8 +19,6 @@
 TRACKERS="udp://tracker.openbittorrent.com:80/announce,udp://tracker.publicbt.com:80/announce,http://tracker.openbittorrent.com:80/announce,http://tracker.publicbt.com:80/announce,udp://tracker.ccc.de/announce"
 ARRAY_TRACK=(${TRACKERS//,/ })
 
-echo $ARRAY_TRACK
-
 SOURCE=/public/
 DEST_FILE=/public/magnets.url
 OPTS="-r --magnet --btih --percents --speed"
