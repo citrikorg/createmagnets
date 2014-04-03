@@ -1,6 +1,9 @@
 #!/bin/bash
 
 ### Create recursive magnets URLs on a directory with rhash package
+
+###TESTING ON rTorret CLIENT, NOT WORKING, WRONG URL
+
 # http://sourceforge.net/apps/mediawiki/rhash/index.php?title=Usage_examples
 
 # Necessary package: rhash https://github.com/rhash/RHash
@@ -17,3 +20,4 @@ DEST_FILE="/var/public/magnets.url"
 OPTS="-r -ma  --percents --speed"
 
 /usr/bin/rhash $OPTS $SOURCE > $DEST_FILE
+
