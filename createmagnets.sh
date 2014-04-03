@@ -14,6 +14,8 @@
 ###TESTING ON rTorret CLIENT, OPTION 3) and 1) NOT WORKING, WRONG URL
 ###!!!NEED TRACKERS!!!
 
+TRACKERS=udp://tracker.openbittorrent.com:80/announce,udp://tracker.publicbt.com:80/announce,http://tracker.openbittorrent.com:80/announce,http://tracker.publicbt.com:80/announce,udp://tracker.ccc.de/announce
+
 SOURCE="/var/public/"
 DEST_FILE="/var/public/magnets.url"
 OPTS="-r --magnet --btih --percents --speed"
