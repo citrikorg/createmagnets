@@ -3,6 +3,7 @@
 ### Create recursive magnets URLs on a directory with rhash package
 
 # http://sourceforge.net/apps/mediawiki/rhash/index.php?title=Usage_examples
+# http://earthwithsun.com/questions/628152/create-and-seed-a-torrent-from-scratch-via-magnet
 
 # Necessary package: rhash https://github.com/rhash/RHash
 
