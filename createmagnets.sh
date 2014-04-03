@@ -15,11 +15,25 @@
 ###TESTING ON rTorret CLIENT, OPTION 3) and 1) NOT WORKING, WRONG URL
 ###!!!NEED TRACKERS!!!
 
-TRACKERS=udp://tracker.openbittorrent.com:80/announce,udp://tracker.publicbt.com:80/announce,http://tracker.openbittorrent.com:80/announce,http://tracker.publicbt.com:80/announce,udp://tracker.ccc.de/announce
+TRACK1=udp://tracker.openbittorrent.com:80/announce
+TRACK2=udp://tracker.publicbt.com:80/announce
+TRACK3=http://tracker.openbittorrent.com:80/announce
+TRACK4=http://tracker.publicbt.com:80/announce
+TRACK5=udp://tracker.ccc.de/announce
 
-SOURCE="/var/public/"
-DEST_FILE="/var/public/magnets.url"
+SOURCE="/public/"
+DEST_FILE="/public/magnets.url"
 OPTS="-r --magnet --btih --percents --speed"
 
-/usr/bin/rhash --bt-announce $TRACKERS $OPTS $SOURCE >> $DEST_FILE
+# Recursive file on SOURCE
+cd $SOURCE
+for file in `find . -type f`
+do
+ path=${file%/*}
+ path=${path#.}
+ name=${file##*/}
+
+ echo Processing $path/$file
+ /usr/bin/rhash $OPTS $file > $DEST_FILE
+done
 
