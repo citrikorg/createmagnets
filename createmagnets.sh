@@ -16,4 +16,4 @@ SOURCE="/var/public/"
 DEST_FILE="/var/public/magnets.url"
 OPTS="-r -ma  --percents --speed"
 
-/usr/bin/rhash $OPTS $SOURCE >> $DEST_FILE
+/usr/bin/rhash $OPTS $SOURCE > $DEST_FILE
