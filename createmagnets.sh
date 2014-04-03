@@ -7,22 +7,24 @@
 
 # Necessary package: rhash https://github.com/rhash/RHash
 
+### Bugs-Features ####################
+### 1) No newline on rhash command ###
+### ##################################
+
 # Usage: 
 # 1) Direct Connect TTH and EDonkey200: rhash --magnet files
 # 2) Magnet link for Bitorrent P2P Bittorrent Info Hash (BTIH): rhash --magnet --btih files 
 # 3) All supported magnet Hash: rhash -ma files
 
 ###TESTING ON rTorret CLIENT, OPTION 3) and 1) NOT WORKING, WRONG URL
-###!!!NEED TRACKERS!!!
 
-TRACK1=udp://tracker.openbittorrent.com:80/announce
-TRACK2=udp://tracker.publicbt.com:80/announce
-TRACK3=http://tracker.openbittorrent.com:80/announce
-TRACK4=http://tracker.publicbt.com:80/announce
-TRACK5=udp://tracker.ccc.de/announce
+TRACKERS="udp://tracker.openbittorrent.com:80/announce,udp://tracker.publicbt.com:80/announce,http://tracker.openbittorrent.com:80/announce,http://tracker.publicbt.com:80/announce,udp://tracker.ccc.de/announce"
+ARRAY_TRACK=(${TRACKERS//,/ })
 
-SOURCE="/public/"
-DEST_FILE="/public/magnets.url"
+echo $ARRAY_TRACK
+
+SOURCE=/public/
+DEST_FILE=/public/magnets.url
 OPTS="-r --magnet --btih --percents --speed"
 
 # Recursive file on SOURCE
@@ -34,6 +36,11 @@ do
  name=${file##*/}
 
  echo Processing $path/$file
- /usr/bin/rhash $OPTS $file > $DEST_FILE
+ /usr/bin/rhash $OPTS $file >> $DEST_FILE
+ for i in "${!ARRAY_TRACK[@]}"
+  do
+   echo -n "&tr=${ARRAY_TRACK[i]}" >> $DEST_FILE
+  done
+ echo
 done
 
