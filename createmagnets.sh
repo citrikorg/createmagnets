@@ -20,5 +20,5 @@ SOURCE="/var/public/"
 DEST_FILE="/var/public/magnets.url"
 OPTS="-r --magnet --btih --percents --speed"
 
-/usr/bin/rhash $OPTS $SOURCE > $DEST_FILE
+/usr/bin/rhash --bt-announce $TRACKERS $OPTS $SOURCE >> $DEST_FILE
 
