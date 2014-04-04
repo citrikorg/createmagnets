@@ -2,7 +2,7 @@
 
 # createmagnets.sh v1.0 GPLv3 by 44Kbps
 # Thanks for the inspitation and the some code @ioerror
-# Thanks to Jimmics for the $(command)
+# Thanks to Jimics for the $(command)
 
 # Necessary package: rhash https://github.com/rhash/RHash
 
