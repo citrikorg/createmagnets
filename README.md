@@ -3,7 +3,7 @@ createmagnets
 
 Little Bash script to create magnet URL of several using rhash
 
-Thanks for the inspitation and the some code @ioerror
+Thanks for the inspitation and the some code @ioerror,
 Thanks to Jimics for the $(command)
 
 Necessary package: rhash https://github.com/rhash/RHash
