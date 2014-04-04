@@ -1,20 +1,4 @@
-#!/bin/bash
-
-# createmagnets.sh v1.0 GPLv3 by 44Kbps
-# Thanks for the inspitation and the some code @ioerror
-# Thanks to Jimics for the $(command)
-
-# Necessary package: rhash https://github.com/rhash/RHash
-
-# rhash Usage: 
-# 1) Direct Connect TTH and EDonkey200: rhash --magnet files
-# 2) Magnet link for Bitorrent P2P Bittorrent Info Hash (BTIH): rhash --magnet --btih files 
-# 3) All supported magnet Hash: rhash -ma files
-
-### Bugs-Features
-# 1) More Trackers
-
-###TESTED ON rTorret CLIENT, OPTION 3) and 1) NOT WORKING, WRONG URL
+# createmagnets.sh v0.1b GPLv3 by 44Kbps
 
 TRACKERS="udp://tracker.openbittorrent.com:80/announce,udp://tracker.publicbt.com:80/announce,http://tracker.openbittorrent.com:80/announce,http://tracker.publicbt.com:80/announce,udp://tracker.ccc.de/announce"
 ARRAY_TRACK=(${TRACKERS//,/ })
