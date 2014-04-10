@@ -1,25 +1,13 @@
-# createmagnets.sh v0.1b GPLv3 by 44Kbps
+# createmagnets.sh v0.2b GPLv3 by 44Kbps
 
-TRACKERS="udp://tracker.openbittorrent.com:80/announce,udp://tracker.publicbt.com:80/announce,http://tracker.openbittorrent.com:80/announce,http://tracker.publicbt.com:80/announce,udp://tracker.ccc.de/announce"
-ARRAY_TRACK=(${TRACKERS//,/ })
+# This version is only one command line
+# TODO: more trackers!
+
+TRACKERS="&tr=udp://tracker.openbittorrent.com:80/announce,&tr=udp://tracker.publicbt.com:80/announce,&tr=http://tracker.openbittorrent.com:80/announce,&tr=http://tracker.publicbt.com:80/announce,&tr=udp://tracker.ccc.de/announce"
 
 SOURCE=/public/
-DEST_FILE=/public/magnets.url
+MAGNETS=/public/magnets.url
 OPTS="-r --magnet --btih --percents --speed"
 
-# Recursive file on SOURCE
-cd $SOURCE
-for file in `find . -type f`
-do
- path=${file%/*}
- path=${path#.}
- name=${file##*/}
-
- echo Processing $path/$file
- echo -n $(/usr/bin/rhash $OPTS $file) >> $DEST_FILE
- for i in "${!ARRAY_TRACK[@]}"
-  do
-   echo -n "&tr=${ARRAY_TRACK[i]}" >> $DEST_FILE
-  done
-  echo "" >> $DEST_FILE
-done
+# Recursive file on SOURCE with find
+find /public/ -type f -exec /usr/bin/rhash $OPTS {} \; -exec echo $TRACKERS  \; > $MAGNETS
