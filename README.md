@@ -2,6 +2,7 @@ createmagnets
 =============
 
 Little Bash script to create magnet URL of several using rhash
+Updated to java
 
 Thanks for the inspitation and the some code @ioerror,
 Thanks to Jimics for the $(command)
