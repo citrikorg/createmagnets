@@ -48,6 +48,7 @@ public class CreateMagnets {
 			String line = "";
 			while ((line = reader.readLine()) != null) {
 				System.out.println(line+urlTracker);
+				System.out.println();
 			}
 		}
 	}
