@@ -7,6 +7,8 @@ import java.io.File;
 //2) LinePerLineProcessing? Think not possible
 //3) Exclude files like .torrent, .md5, sha... Thinks not possible
 
+//PROVES
+
 public class CreateMagnets {
 	public static void main(String[] args) throws IOException,
 			InterruptedException {
