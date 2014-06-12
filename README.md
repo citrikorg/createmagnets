@@ -16,6 +16,6 @@ rhash Usage:
 
 Bugs-Features
 1) More Trackers
-2) Problem with files and directories with space
+2) Problem with files and directories with space (only on bash, unresolved)
 
 TESTED ON rTorret CLIENT, OPTION 3) and 1) NOT WORKING, WRONG URL
